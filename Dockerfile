@@ -7,7 +7,7 @@ ENV FLUTTER_VERSION=0.5.1-beta
 
 RUN dnf update -y \
     && dnf install -y wget tar unzip ruby ruby-devel make autoconf automake redhat-rpm-config \
-           gcc gcc-c++ libstdc++.i686 java-1.8.0-openjdk-devel xz git mesa-libGL\
+           gcc gcc-c++ libstdc++.i686 java-1.8.0-openjdk-devel xz git mesa-libGL mesa-libGLU\
     && dnf clean all
 
 RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip \
