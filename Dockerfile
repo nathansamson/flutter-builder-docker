@@ -6,7 +6,7 @@ ENV ANDROID_SDK_TOOLS=3859397
 ENV FLUTTER_VERSION=0.5.1-beta
 
 RUN dnf update -y \
-    && dnf install -y wget tar unzip ruby ruby-devel make autoconf automake redhat-rpm-config \
+    && dnf install -y wget tar unzip ruby ruby-devel make autoconf automake redhat-rpm-config lcov\
            gcc gcc-c++ libstdc++.i686 java-1.8.0-openjdk-devel xz git mesa-libGL mesa-libGLU\
     && dnf clean all
 
