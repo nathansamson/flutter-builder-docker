@@ -29,15 +29,3 @@ RUN wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com
     && rm flutter.tar.xz
 
 ENV PATH=$PATH:/opt/flutter/bin
-
-RUN echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "emulator" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-18;google_apis;x86" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-27;google_apis_playstore;x86" \
-
-RUN dnf update -y \
-    && dnf -y pulseaudio-libs mesa-libGL  mesa-libGLES mesa-libEGL \
-    && dnf clean all
-
-#
-# /opt/android-sdk-linux/tools/bin/avdmanager create avd -k 'system-images;android-18;google_apis;x86' --abi google_apis/x86 -n 'test' -d 'Nexus 4'
-# emulator -avd test -no-skin -no-audio -no-window
