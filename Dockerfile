@@ -29,3 +29,6 @@ RUN wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com
     && rm flutter.tar.xz
 
 ENV PATH=$PATH:/opt/flutter/bin
+
+# Switch to master flutter version to currently build json_serialziation dependency
+RUN flutter channel master && flutter doctor upgrade
