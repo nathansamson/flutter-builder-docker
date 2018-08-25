@@ -32,7 +32,7 @@ ENV PATH=$PATH:/opt/flutter/bin
 
 RUN echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "emulator" \
     && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-18;google_apis;x86" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-27;google_apis_playstore;x86" \
+    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-27;google_apis_playstore;x86"
 
 RUN dnf update -y \
     && dnf -y pulseaudio-libs mesa-libGL  mesa-libGLES mesa-libEGL \
