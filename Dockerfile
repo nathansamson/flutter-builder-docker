@@ -35,7 +35,7 @@ RUN echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "emulator" \
     && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-27;google_apis_playstore;x86"
 
 RUN dnf update -y \
-    && dnf -y pulseaudio-libs mesa-libGL  mesa-libGLES mesa-libEGL \
+    && dnf install -y pulseaudio-libs mesa-libGL  mesa-libGLES mesa-libEGL \
     && dnf clean all
 
 #
