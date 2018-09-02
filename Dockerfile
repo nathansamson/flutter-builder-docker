@@ -3,7 +3,7 @@ FROM fedora:28
 ENV ANDROID_COMPILE_SDK=28
 ENV ANDROID_BUILD_TOOLS=28.0.1
 ENV ANDROID_SDK_TOOLS=4333796
-ENV FLUTTER_VERSION=0.5.1-beta
+ENV FLUTTER_VERSION=0.6.0-beta
 
 RUN dnf update -y \
     && dnf install -y wget tar unzip ruby ruby-devel make autoconf automake redhat-rpm-config lcov\
