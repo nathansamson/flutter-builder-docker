@@ -3,7 +3,8 @@ FROM fedora:28
 ENV ANDROID_COMPILE_SDK=28
 ENV ANDROID_BUILD_TOOLS=28.0.1
 ENV ANDROID_SDK_TOOLS=4333796
-ENV FLUTTER_VERSION=1.0.0-stable
+ENV FLUTTER_CHANNEL=stable
+ENV FLUTTER_VERSION=1.0.0-${FLUTTER_CHANNEL}
 
 RUN dnf update -y \
     && dnf install -y wget tar unzip ruby ruby-devel make autoconf automake redhat-rpm-config lcov\
@@ -24,7 +25,7 @@ RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android
 ENV ANDROID_HOME=/opt/android-sdk-linux
 ENV PATH=$PATH:/opt/android-sdk-linux/platform-tools/
 
-RUN wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/beta/linux/flutter_linux_v${FLUTTER_VERSION}.tar.xz \
+RUN wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/${FLUTTER_CHANNEL}/linux/flutter_linux_v${FLUTTER_VERSION}.tar.xz \
     && tar xf flutter.tar.xz -C /opt \
     && rm flutter.tar.xz
 
