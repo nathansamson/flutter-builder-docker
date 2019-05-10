@@ -4,11 +4,11 @@ ENV ANDROID_COMPILE_SDK=28
 ENV ANDROID_BUILD_TOOLS=28.0.1
 ENV ANDROID_SDK_TOOLS=4333796
 ENV FLUTTER_CHANNEL=stable
-ENV FLUTTER_VERSION=1.0.0-${FLUTTER_CHANNEL}
+ENV FLUTTER_VERSION=1.5.0-${FLUTTER_CHANNEL}
 
 RUN dnf update -y \
     && dnf install -y wget tar unzip ruby ruby-devel make autoconf automake redhat-rpm-config lcov\
-           gcc gcc-c++ libstdc++.i686 java-1.8.0-openjdk-devel xz git mesa-libGL mesa-libGLU\
+    gcc gcc-c++ libstdc++.i686 java-1.8.0-openjdk-devel xz git mesa-libGL mesa-libGLU\
     && dnf clean all
 
 RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip \
