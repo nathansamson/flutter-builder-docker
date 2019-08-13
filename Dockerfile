@@ -7,7 +7,7 @@ ENV FLUTTER_CHANNEL=stable
 ENV FLUTTER_VERSION=1.7.8+hotfix.4-${FLUTTER_CHANNEL}
 
 RUN dnf update -y \
-    && dnf install -y wget \
+    && dnf install -y wget git \
                       xz tar unzip which \
                       ruby ruby-devel \
                       make autoconf automake  \
