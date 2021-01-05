@@ -18,7 +18,7 @@ RUN dnf update -y \
     mesa-libGL mesa-libGLU \
     && dnf clean all
 
-RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}.zip \
+RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip \
     && unzip android-sdk.zip -d /opt/android-sdk-linux/ \
     && echo "y" | /opt/android-sdk-linux/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" \
     && echo "y" | /opt/android-sdk-linux/bin/sdkmanager "platform-tools" \
