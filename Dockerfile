@@ -20,13 +20,13 @@ RUN dnf update -y \
 
 RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip \
     && unzip android-sdk.zip -d /opt/android-sdk-linux/ \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "platform-tools" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "extras;android;m2repository" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "extras;google;google_play_services" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "extras;google;m2repository" \
-    && yes | /opt/android-sdk-linux/tools/bin/sdkmanager  --licenses || echo "Failed" \
+    && echo "y" | /opt/android-sdk-linux/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" \
+    && echo "y" | /opt/android-sdk-linux/bin/sdkmanager "platform-tools" \
+    && echo "y" | /opt/android-sdk-linux/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}" \
+    && echo "y" | /opt/android-sdk-linux/bin/sdkmanager "extras;android;m2repository" \
+    && echo "y" | /opt/android-sdk-linux/bin/sdkmanager "extras;google;google_play_services" \
+    && echo "y" | /opt/android-sdk-linux/bin/sdkmanager "extras;google;m2repository" \
+    && yes | /opt/android-sdk-linux/bin/sdkmanager  --licenses || echo "Failed" \
     && rm android-sdk.zip
 
 ENV ANDROID_HOME=/opt/android-sdk-linux
@@ -38,9 +38,9 @@ RUN wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com
 
 ENV PATH=$PATH:/opt/flutter/bin
 
-RUN echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "emulator" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-18;google_apis;x86" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-27;google_apis_playstore;x86"
+RUN echo "y" | /opt/android-sdk-linux/bin/sdkmanager "emulator" \
+    && echo "y" | /opt/android-sdk-linux/bin/sdkmanager "system-images;android-18;google_apis;x86" \
+    && echo "y" | /opt/android-sdk-linux/bin/sdkmanager "system-images;android-27;google_apis_playstore;x86"
 
 RUN dnf update -y \
     && dnf install -y pulseaudio-libs mesa-libGL  mesa-libGLES mesa-libEGL \
